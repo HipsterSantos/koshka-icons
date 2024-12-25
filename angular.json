@@ -3,5 +3,41 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+    "koshka-icons": {
+      "projectType": "library",
+      "root": "projects/koshka-icons",
+      "sourceRoot": "projects/koshka-icons/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/koshka-icons/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/koshka-icons/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/koshka-icons/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/koshka-icons/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": false
   }
 }
